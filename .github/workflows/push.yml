@@ -217,7 +217,7 @@ jobs:
       - name: Verify generated files are up to date
         uses: ./.github/actions/verify-generated-files
   WINDOWS:
-    if: github.repository == 'php/php-src' || github.event_name == 'pull_request'
+    if: github.repository == 'i-dx/php-src' || github.event_name == 'pull_request'
     name: WINDOWS_X64_ZTS
     runs-on: windows-2019
     env:
