@@ -240,6 +240,11 @@ jobs:
         uses: ./.github/actions/setup-windows
       - name: Build
         run: .github/scripts/windows/build.bat
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: php-build-release-ts
+          path: C:\obj\Release_TS\php.exe
       - name: Test
         run: .github/scripts/windows/test.bat
   BENCHMARKING:
