@@ -381,7 +381,10 @@ static bool zend_call_stack_get_win32(zend_call_stack *stack)
 	 *                v  Lower addresses   v
 	 */
 
-	GetCurrentThreadStackLimits(&low_limit, &high_limit);
+	// GetCurrentThreadStackLimits(&low_limit, &high_limit);
+	NT_TLS* tib = NtCurrentTeb();
+    low_limit = (ULONG_PTR)tib->StackLimit;
+    high_limit = (ULONG_PTR)tib->StackBase;
 
 	result_size = VirtualQuery((void*)low_limit,
 			&uncommitted_region, sizeof(uncommitted_region));
