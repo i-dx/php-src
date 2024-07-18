@@ -26,6 +26,7 @@
 #ifdef ZEND_WIN32
 # include <processthreadsapi.h>
 # include <memoryapi.h>
+# include <winnt.h>
 #else /* ZEND_WIN32 */
 # include <sys/resource.h>
 # ifdef HAVE_UNISTD_H
